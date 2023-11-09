@@ -4,7 +4,8 @@
     "type": "project",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "app/",
+            "Config\\": "config/"
         }
     },
     "homepage": "https://github.com/nafbeckh/zakat-fitrah",
@@ -15,5 +16,6 @@
         }
     ],
     "require": {
+        "hidehalo/nanoid-php": "^1.1"
     }
 }
