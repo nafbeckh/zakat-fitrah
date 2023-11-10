@@ -7,6 +7,14 @@ use Hidehalo\Nanoid\Client;
 
 class Amil extends Connection
 {
+  public function count()
+  {
+    $sql = "SELECT COUNT(*) FROM amils";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+    
+    return $stmt->execute();
+  }
 
   public function show()
   {
@@ -49,7 +57,7 @@ class Amil extends Connection
     $stmt->execute();
     
     if ($stmt->rowCount() == 0) {
-      throw new Exception("Id tidak ditemukan");
+      throw new \Exception("Id tidak ditemukan");
     }
 
     return $stmt->fetch();

@@ -2,14 +2,30 @@
 
 namespace App\Services;
 
-use App\Config\Connection;
+use Config\Connection;
 use Hidehalo\Nanoid\Client;
 
 class Pembayaran extends Connection
 {
+  public float $beras;
+  public int $tunai;
+
+  public function count()
+  {
+    $sql = "SELECT COUNT(*) FROM pembayarans";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+    
+    return $stmt->execute();
+  }
+
   public function show()
   {
-    $sql = "SELECT * FROM pembayarans ORDER BY created_at DESC";
+    $sql = "SELECT *, a.nama AS nama_amil, m.nama AS nama_muzakki, t.created_at AS tgl_pembayaran
+            FROM pembayarans AS t
+            LEFT JOIN amils AS a ON t.amil_id = a.id
+            RIGHT JOIN muzakkis AS m ON t.muzakki_id = m.id
+            ORDER BY tgl_pembayaran DESC";
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
@@ -53,7 +69,7 @@ class Pembayaran extends Connection
     $stmt->execute();
     
     if ($stmt->rowCount() == 0) {
-      throw new Exception("Id tidak ditemukan");
+      throw new \Exception("Id tidak ditemukan");
     }
 
     return $stmt->fetch();
@@ -93,6 +109,18 @@ class Pembayaran extends Connection
     $stmt->execute();
 
     return ['message' => 'Berhasil menghapus data Pembayaran Zakat'];
+  }
+
+  public function totalZakat()
+  {
+    $sql = "SELECT SUM(beras) AS beras, SUM(tunai) AS tunai  FROM pembayarans";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+
+    $data = $stmt->fetch();
+    
+    $this->beras = $data['beras'];
+    $this->tunai = $data['tunai'];
   }
 }
 

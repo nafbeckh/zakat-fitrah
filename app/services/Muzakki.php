@@ -2,11 +2,20 @@
 
 namespace App\Services;
 
-use App\Config\Connection;
+use Config\Connection;
 use Hidehalo\Nanoid\Client;
 
 class Muzakki extends Connection
 {
+  public function count()
+  {
+    $sql = "SELECT COUNT(*) FROM muzakkis";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+    
+    return $stmt->execute();
+  }
+
   public function show()
   {
     $sql = "SELECT * FROM muzakkis ORDER BY nama ASC";
