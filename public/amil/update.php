@@ -5,14 +5,14 @@ $amil = new App\Amil();
 if (isset($_GET["id"])) {
   $row = $amil->edit($_GET["id"]);
 } else {
-  // header('location:amil/index');
+  header('location:index');
 }
 
 if (isset($_POST["update"])) {
   $result = $amil->update($_GET["id"]);
 
   echo "<script>alert('{$result["message"]}');
-        window.location.href = 'index.php?page=amil&action=update.php&id={$_GET["id"]}'; </script>";
+        window.location.href = '$_GET[id]'; </script>";
 }
 
 ?>

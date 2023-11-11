@@ -51,7 +51,7 @@ include "delete.php";
                 <td><?= $row['alamat']; ?></td>
                 <td align="center">
                   <a href="update/<?= $row['id']; ?>" class="btn btn-success btn-href" title="Edit"><i class="fa fa-pencil"></i></a>
-                  <button class="btn btn-danger" onclick="deleteAmil('<?=$row['id']; ?>')" title="Hapus"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-danger" onclick="deleteRow('<?=$row['id']; ?>')" title="Hapus"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
             <?php } ?>
@@ -65,17 +65,3 @@ include "delete.php";
 <form method="post" id="formDelete" hidden>
   <input type="text" name="id" id="id">
 </form>
-
-<script>
-  const deleteAmil = (id) => {
-    let form = document.getElementById("formDelete");
-    let input = document.getElementById("id");
-
-    let result = confirm("Apakah anda ingin menghapus data ini?");
-
-    if (result) {
-      input.value = id
-      form.submit()
-    }
-  }
-</script>
