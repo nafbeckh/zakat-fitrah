@@ -4,9 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title><?=isset($_GET['page']) ? ucfirst($_GET['page']) : ''; ?> - Zakat Fitrah</title>
-  <link rel="icon" type="image/x-icon" href="../assets//dist/img/eid-mubarak.png">
-  <link rel="stylesheet" href="../assets/dist/css/style.css">
-  <link rel="stylesheet" href="../assets/dist/css/table.css">
+  <link rel="icon" type="image/x-icon" href="<?=BASE_URL;?>/assets//dist/img/eid-mubarak.png">
+  <link rel="stylesheet" href="<?=BASE_URL;?>/assets/dist/css/style.css">
+  <link rel="stylesheet" href="<?=BASE_URL;?>/assets/dist/css/table.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
@@ -31,9 +31,7 @@
 
     <main class="main-content">
       <?php
-        if(isset($_GET['page']) && isset($_GET['action'])) {
-          include "public/$_GET[page]/$_GET[action]";
-        }
+        include "public/$_GET[page]/$_GET[action].php";
       ?>
     </main>
 

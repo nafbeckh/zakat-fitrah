@@ -14,7 +14,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <?= ($_GET['page'] == 'dashboard') ? 'id="active"' : ''; ?> href="../dashboard/index">
+            <a class="nav-link" <?= ($_GET['page'] == 'dashboard') ? 'id="active"' : ''; ?> href="<?=BASE_URL;?>/dashboard/index">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
             </a>
@@ -25,13 +25,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <?= ($_GET['page'] == 'amil') ? 'id="active"' : ''; ?> href="../amil/index">
+            <a class="nav-link" <?= ($_GET['page'] == 'amil') ? 'id="active"' : ''; ?> href="<?=BASE_URL;?>/amil/index">
               <i class="fa fa-users"></i>
               <span>Amil</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <?= ($_GET['page'] == 'muzakki') ? 'id="active"' : ''; ?> href="../muzakki/index">
+            <a class="nav-link" <?= ($_GET['page'] == 'muzakki') ? 'id="active"' : ''; ?> href="<?=BASE_URL;?>/muzakki/index">
               <i class="fa fa-hand-holding-dollar"></i>
               <span>Muzakki</span>
             </a>
@@ -42,7 +42,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" <?= ($_GET['page'] == 'pembayaran') ? 'id="active"' : ''; ?> href="../pembayaran/index">
+            <a class="nav-link" <?= ($_GET['page'] == 'pembayaran') ? 'id="active"' : ''; ?> href="<?=BASE_URL;?>/pembayaran/index">
               <i class="fa fa-comments-dollar"></i>
               <span>Pembayaran Zakat</span>
             </a>
