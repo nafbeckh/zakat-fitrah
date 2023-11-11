@@ -1,3 +1,12 @@
+<?php
+
+if (isset($_POST['logout'])) {
+  session_destroy();
+  header('location:/zakat-fitrah');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +27,9 @@
     <nav class="main-navbar">
       <div class="profile">
         <i class="fa fa-circle-user profile-icon"></i>
-        <span class="profile-name">Admin</span>
+        <span class="profile-name"><?=$_SESSION['auth']['name'];?></span>
       </div>
+      <div class="btn btn-default" onclick="logout()">Logout</div>
     </nav>
 
     <header class="main-header">
@@ -30,9 +40,7 @@
     </header>
 
     <main class="main-content">
-      <?php
-        include "public/$_GET[page]/$_GET[action].php";
-      ?>
+      <?php include "public/$_GET[page]/$_GET[action].php"; ?>
     </main>
 
     <footer class="main-footer">
@@ -40,6 +48,10 @@
       <a href="https://github.com/nafbeckh" target="_blank">Nafbeckh</a>
     </footer>
   </div>
+
+  <form method="post" id="formLogout" hidden>
+    <input type="text" name="logout" id="logout">
+  </form>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
   <script src="<?=BASE_URL;?>/assets/dist/js/script.js"></script>

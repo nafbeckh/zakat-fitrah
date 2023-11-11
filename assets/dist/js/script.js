@@ -9,3 +9,9 @@ const deleteRow = (id) => {
     form.submit()
   }
 }
+
+const logout = (id) => {
+  let form = document.getElementById("formLogout");
+  let input = document.getElementById("logout");
+  form.submit()
+}

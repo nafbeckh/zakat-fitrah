@@ -149,6 +149,7 @@ body::-webkit-scrollbar-thumb:vertical {
 .main-navbar {
   padding: 7px 24px 7px 7px;
   display: flex;
+  gap: 20px;
   justify-content: end;
 }
 
@@ -386,4 +387,28 @@ body::-webkit-scrollbar-thumb:vertical {
     color: #fff;
     box-shadow: 0 0 40px 40px var(--primary-tint-20) inset;
   }
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(238, 238, 238);
+  height: 100vh;
+}
+
+#card-login {
+  width: 65vh;
+}
+
+#card-login .card-title {
+  text-align: center;
+}
+
+.button-login-place {
+  text-align: right;
+}
+
+#btn-login {
+  padding: 10px 30px;
 }
