@@ -1,0 +1,10 @@
+<ifModule mod_rewrite.c>
+
+RewriteEngine On
+
+RewriteCond %{SCRIPT_FILENAME} !-d
+RewriteCond %{SCRIPT_FILENAME} !-f
+
+RewriteRule ^([a-z]+)/([a-z]+) index.php?page=$1&action=$2.php
+
+</ifModule>
