@@ -13,7 +13,7 @@ class Muzakki extends Connection
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
-    return $stmt->execute();
+    return $stmt->fetchColumn();
   }
 
   public function show()
@@ -52,8 +52,9 @@ class Muzakki extends Connection
 
   public function edit($id)
   {
-    $sql = "SELECT * FROM muzakkis WHERE id = $id";
+    $sql = "SELECT * FROM muzakkis WHERE id = :id";
     $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(":id", $id);
     $stmt->execute();
     
     if ($stmt->rowCount() == 0) {
@@ -69,8 +70,9 @@ class Muzakki extends Connection
     $no_hp = $_POST["no_hp"];
     $alamat = $_POST["alamat"];
 
-    $sql = "UPDATE muzakkis SET nama = :nama, no_hp = :no_hp, alamat = :alamat WHERE id = $id";
+    $sql = "UPDATE muzakkis SET nama = :nama, no_hp = :no_hp, alamat = :alamat WHERE id = :id";
     $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(":id", $id);
     $stmt->bindParam(":nama", $nama);
     $stmt->bindParam(":no_hp", $no_hp);
     $stmt->bindParam(":alamat", $alamat);
@@ -81,8 +83,9 @@ class Muzakki extends Connection
 
   public function delete($id)
   {
-    $sql = "DELETE FROM muzakkis WHERE id = $id";
+    $sql = "DELETE FROM muzakkis WHERE id = :id";
     $stmt = $this->db->prepare($sql);
+    $stmt->bindParam(":id", $id);
     $stmt->execute();
 
     return ['message' => 'Berhasil menghapus data Muzakki'];

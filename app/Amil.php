@@ -13,7 +13,7 @@ class Amil extends Connection
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
-    return $stmt->execute();
+    return $stmt->fetchColumn();
   }
 
   public function show()
