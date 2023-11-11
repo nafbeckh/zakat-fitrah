@@ -1,7 +1,0 @@
-<ifModule mod_rewrite.c>
-
-RewriteEngine On
-
-RewriteRule ^([a-z]+)/([a-z]+) index.php?page=$1&action=$2.php
-
-</ifModule>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App;
 
 use Config\Connection;
 use Hidehalo\Nanoid\Client;

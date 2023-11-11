@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App;
 
 use Config\Connection;
 use Hidehalo\Nanoid\Client;
@@ -57,7 +57,7 @@ class Muzakki extends Connection
     $stmt->execute();
     
     if ($stmt->rowCount() == 0) {
-      throw new Exception("Id tidak ditemukan");
+      throw new \Exception("Id tidak ditemukan");
     }
 
     return $stmt->fetch();

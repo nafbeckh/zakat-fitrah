@@ -143,6 +143,7 @@ body::-webkit-scrollbar-thumb:vertical {
   display: flex;
   margin-left: 250px;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .main-navbar {
@@ -222,6 +223,7 @@ body::-webkit-scrollbar-thumb:vertical {
 }
 
 .breadcrumb li a {
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -257,9 +259,44 @@ body::-webkit-scrollbar-thumb:vertical {
   padding: 30px;
 }
 
+.button-place {
+  text-align: right;
+  padding: 15px 0 20px 0;
+}
+
 .row {
   display: flex;
   gap: 20px
+}
+
+
+.form-row {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  color: var(--info-shade-20);
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  display: block;
+  color: #8a92a6;
+  border-radius: 4px;
+  border: 1px solid var(--info-tint-20);
+}
+
+.form-control:focus{
+  outline: 0;
+  border: 1px solid var(--primary);
+  box-shadow: 0 0 4px 0 var(--primary-tint-60);
 }
 
 .col-icon {
@@ -277,8 +314,8 @@ body::-webkit-scrollbar-thumb:vertical {
 }
 
 .main-footer {
-  bottom: 0;
-  position: static;
+  margin-top: auto;
+  width: 100%;
   padding: 20px;
   background-color: #fff;
 }
@@ -304,6 +341,7 @@ body::-webkit-scrollbar-thumb:vertical {
   text-decoration: none;
   text-align: center;
   color: #fff;
+  margin-right: 5px;
 }
 
 .btn-danger {
@@ -330,5 +368,17 @@ body::-webkit-scrollbar-thumb:vertical {
 
   &:hover {
     box-shadow: 0 0 40px 40px #168847 inset;
+  }
+}
+
+.btn-default {
+  color: var(--primary-tint-20);
+  border: var(--primary-tint-20) 1.5px solid;
+  background-color: #fff;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+
+  &:hover {
+    color: #fff;
+    box-shadow: 0 0 40px 40px var(--primary-tint-20) inset;
   }
 }

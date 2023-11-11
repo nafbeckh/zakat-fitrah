@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App;
 
 use Config\Connection;
 use Hidehalo\Nanoid\Client;
@@ -26,6 +26,25 @@ class Pembayaran extends Connection
             LEFT JOIN amils AS a ON t.amil_id = a.id
             RIGHT JOIN muzakkis AS m ON t.muzakki_id = m.id
             ORDER BY tgl_pembayaran DESC";
+    $stmt = $this->db->prepare($sql);
+    $stmt->execute();
+    
+    $data = [];
+
+    while ($rows = $stmt->fetch()) {
+      $data[] = $rows;
+    }
+
+    return $data;
+  }
+
+  public function dashboard()
+  {
+    $sql = "SELECT a.nama AS nama_amil, m.nama AS nama_muzakki, t.beras, t.tunai, t.created_at AS tgl_pembayaran
+            FROM pembayarans AS t
+            LEFT JOIN amils AS a ON t.amil_id = a.id
+            RIGHT JOIN muzakkis AS m ON t.muzakki_id = m.id
+            ORDER BY tgl_pembayaran DESC LIMIT 5";
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
