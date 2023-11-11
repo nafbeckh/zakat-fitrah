@@ -42,6 +42,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+  <script src="<?=BASE_URL;?>/assets/dist/js/script.js"></script>
 
 </body>
 </html>
