@@ -61,7 +61,7 @@ include "delete.php";
                 <td align="right"><?= $row['beras']; ?></td>
                 <td align="right"><?= rupiah($row['tunai']); ?></td>
                 <td align="center">
-                  <button class="btn btn-danger" onclick="deleteRow('<?=$row['id']; ?>')" title="Hapus"><i class="fa fa-trash"></i></button>
+                  <button class="btn btn-danger" onclick="deleteRow('<?=$row['pembayaran_id']; ?>')" title="Hapus"><i class="fa fa-trash"></i></button>
                 </td>
               </tr>
             <?php } ?>
@@ -76,6 +76,6 @@ include "delete.php";
   </div>
 </div>
 
-<form method="post" id="formDelete" hidden>
+<form method="post" id="formDelete">
   <input type="text" name="id" id="id">
 </form>

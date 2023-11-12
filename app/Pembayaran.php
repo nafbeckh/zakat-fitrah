@@ -21,8 +21,8 @@ class Pembayaran extends Connection
 
   public function show()
   {
-    $sql = 'SELECT *, a.nama AS nama_amil, m.nama AS nama_muzakki, t.created_at AS tgl_pembayaran
-            FROM pembayarans AS t
+    $sql = 'SELECT *, t.id AS pembayaran_id, a.nama AS nama_amil, m.nama AS nama_muzakki,
+            t.created_at AS tgl_pembayaran FROM pembayarans AS t
             LEFT JOIN amils AS a ON t.amil_id = a.id
             LEFT JOIN muzakkis AS m ON t.muzakki_id = m.id
             ORDER BY tgl_pembayaran DESC';
