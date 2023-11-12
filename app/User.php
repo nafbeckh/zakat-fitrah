@@ -19,8 +19,8 @@ class User extends Connection
 
     if (!$stmt->rowCount() > 0) {
       return [
-        "status" => "fail",
-        "message" => "Username atau Password ada salah"
+        'status' => 'fail',
+        'message' => 'Username atau Password ada salah'
       ];
     }
 
@@ -30,15 +30,15 @@ class User extends Connection
 
     if (!$verifyPassword) {
       return [
-        "status" => "fail",
-        "message" => "Username atau Password ada salah"
+        'status' => 'fail',
+        'message' => 'Username atau Password ada salah'
       ];
     }
 
     $_SESSION['auth']['username'] = $user['username'];
     $_SESSION['auth']['name'] = $user['nama'];
 
-    return ["status" => "success"];
+    return ['status' => 'success'];
   }
 }
 

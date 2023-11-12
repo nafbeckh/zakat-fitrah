@@ -69,13 +69,16 @@ class Amil extends Connection
     $nama = $_POST['nama'];
     $no_hp = $_POST['no_hp'];
     $alamat = $_POST['alamat'];
+    $updated_at = date('Y-m-d H:i:s');
 
-    $sql = 'UPDATE amils SET nama = :nama, no_hp = :no_hp, alamat = :alamat WHERE id = :id';
+    $sql = 'UPDATE amils SET nama = :nama, no_hp = :no_hp, alamat = :alamat,
+            updated_at = :updated_at WHERE id = :id';
     $stmt = $this->db->prepare($sql);
     $stmt->bindParam(':id', $id);
     $stmt->bindParam(':nama', $nama);
     $stmt->bindParam(':no_hp', $no_hp);
     $stmt->bindParam(':alamat', $alamat);
+    $stmt->bindParam(':updated_at', $updated_at);
     $stmt->execute();
 
     return ['message' => 'Berhasil mengubah data Amil'];

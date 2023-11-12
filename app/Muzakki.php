@@ -9,7 +9,7 @@ class Muzakki extends Connection
 {
   public function count()
   {
-    $sql = "SELECT COUNT(*) FROM muzakkis";
+    $sql = 'SELECT COUNT(*) FROM muzakkis';
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
@@ -18,7 +18,7 @@ class Muzakki extends Connection
 
   public function show()
   {
-    $sql = "SELECT * FROM muzakkis ORDER BY nama ASC";
+    $sql = 'SELECT * FROM muzakkis ORDER BY nama ASC';
     $stmt = $this->db->prepare($sql);
     $stmt->execute();
     
@@ -31,34 +31,34 @@ class Muzakki extends Connection
     return $data;
   }
 
-  public function save()
+  public function save($muzakki)
   {
     $client = new Client();
     $id = $client->generateId($size = 16, $mode = Client::MODE_DYNAMIC);
-    $nama = $_POST["nama"];
-    $no_hp = $_POST["no_hp"];
-    $alamat = $_POST["alamat"];
+    $nama = $muzakki['nama'];
+    $no_hp = $muzakki['no_hp'];
+    $alamat = $muzakki['alamat'];
 
-    $sql = "INSERT INTO muzakkis (id, nama, no_hp, alamat) VALUES (:id, :nama, :no_hp, :alamat)";
+    $sql = 'INSERT INTO muzakkis (id, nama, no_hp, alamat) VALUES (:id, :nama, :no_hp, :alamat)';
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(":id", $id);
-    $stmt->bindParam(":nama", $nama);
-    $stmt->bindParam(":no_hp", $no_hp);
-    $stmt->bindParam(":alamat", $alamat);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':nama', $nama);
+    $stmt->bindParam(':no_hp', $no_hp);
+    $stmt->bindParam(':alamat', $alamat);
     $stmt->execute();
 
-    return ['message' => 'Berhasil menyimpan data Muzakki'];
+    return $id;
   }
 
   public function edit($id)
   {
-    $sql = "SELECT * FROM muzakkis WHERE id = :id";
+    $sql = 'SELECT * FROM muzakkis WHERE id = :id';
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
     
     if ($stmt->rowCount() == 0) {
-      throw new \Exception("Id tidak ditemukan");
+      throw new \Exception('Id tidak ditemukan');
     }
 
     return $stmt->fetch();
@@ -66,16 +66,19 @@ class Muzakki extends Connection
 
   public function update($id)
   {
-    $nama = $_POST["nama"];
-    $no_hp = $_POST["no_hp"];
-    $alamat = $_POST["alamat"];
+    $nama = $_POST['nama'];
+    $no_hp = $_POST['no_hp'];
+    $alamat = $_POST['alamat'];
+    $updated_at = date('Y-m-d H:i:s');
 
-    $sql = "UPDATE muzakkis SET nama = :nama, no_hp = :no_hp, alamat = :alamat WHERE id = :id";
+    $sql = 'UPDATE muzakkis SET nama = :nama, no_hp = :no_hp, alamat = :alamat,
+            updated_at = :updated_at WHERE id = :id';
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(":id", $id);
-    $stmt->bindParam(":nama", $nama);
-    $stmt->bindParam(":no_hp", $no_hp);
-    $stmt->bindParam(":alamat", $alamat);
+    $stmt->bindParam(':id', $id);
+    $stmt->bindParam(':nama', $nama);
+    $stmt->bindParam(':no_hp', $no_hp);
+    $stmt->bindParam(':alamat', $alamat);
+    $stmt->bindParam(':updated_at', $updated_at);
     $stmt->execute();
 
     return ['message' => 'Berhasil mengubah data Muzakki'];
@@ -83,9 +86,9 @@ class Muzakki extends Connection
 
   public function delete($id)
   {
-    $sql = "DELETE FROM muzakkis WHERE id = :id";
+    $sql = 'DELETE FROM muzakkis WHERE id = :id';
     $stmt = $this->db->prepare($sql);
-    $stmt->bindParam(":id", $id);
+    $stmt->bindParam(':id', $id);
     $stmt->execute();
 
     return ['message' => 'Berhasil menghapus data Muzakki'];
