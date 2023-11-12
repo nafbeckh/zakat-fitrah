@@ -20,7 +20,7 @@ require_once 'utils/rupiah.php';
           </div>
           <div class="col-detail">
             <p>Total Amil</p>
-            <h2><?=$amil->count();?></h2>
+            <h2><?= $amil->count(); ?></h2>
           </div>
         </div>
       </div>
@@ -34,7 +34,7 @@ require_once 'utils/rupiah.php';
           </div>
           <div class="col-detail">
             <p>Total Muzakki</p>
-            <h2><?=$muzakki->count();?></h2>
+            <h2><?= $muzakki->count(); ?></h2>
           </div>
         </div>
       </div>
@@ -49,7 +49,7 @@ require_once 'utils/rupiah.php';
 
           <div class="col-detail">
             <p>Total Beras</p>
-            <h2><?=$pembayaran->beras;?>Kg</h2>
+            <h2><?=$pembayaran->beras; ?>Kg</h2>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ require_once 'utils/rupiah.php';
 
           <div class="col-detail">
             <p>Total Tunai</p>
-            <h2>Rp<?=rupiahSingkat($pembayaran->tunai);?></h2>
+            <h2>Rp<?= rupiahSingkat($pembayaran->tunai); ?></h2>
           </div>
         </div>
       </div>
@@ -91,14 +91,15 @@ require_once 'utils/rupiah.php';
             </tr>
           </thead>
           <tbody>
-            <?php $no = 1; foreach ($rows as $row) { ?>
+            <?php $no = 1;
+            foreach ($rows as $row) { ?>
               <tr>
-                <th scope="row"><?=$no++;?></th>
-                <td><?=date('d/m/Y H:i:s', strtotime($row['tgl_pembayaran']));?></td>
-                <td><?= $row['nama_muzakki'];?></td>
-                <td><?= $row['nama_amil'];?></td>
-                <td align="right"><?= $row['beras'];?></td>
-                <td align="right"><?= rupiah($row['tunai']);?></td>
+                <th scope="row"><?= $no++; ?></th>
+                <td><?= date('d/m/Y H:i:s', strtotime($row['tgl_pembayaran'])); ?></td>
+                <td><?= $row['nama_muzakki']; ?></td>
+                <td><?= $row['nama_amil']; ?></td>
+                <td align="right"><?= $row['beras']; ?></td>
+                <td align="right"><?= rupiah($row['tunai']); ?></td>
               </tr>
             <?php } ?>
           </tbody>
