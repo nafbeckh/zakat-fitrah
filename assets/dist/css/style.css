@@ -147,10 +147,13 @@ body::-webkit-scrollbar-thumb:vertical {
 }
 
 .main-navbar {
-  padding: 7px 24px 7px 7px;
+  top: 0;
+  position: sticky;
   display: flex;
   gap: 20px;
   justify-content: end;
+  background-color: #fff;
+  padding: 7px 24px 7px 7px;
 }
 
 .profile {

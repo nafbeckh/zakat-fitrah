@@ -64,7 +64,7 @@ if (isset($_POST['create'])) {
         <div class="card card-zakat">
           <div class="card-header">
             <div class="header-title">
-              <h4 class="card-title">Form Pembayaran</h4>
+              <h4 class="card-title">Form Pembayaran Zakat</h4>
             </div>
           </div>
           <div class="card-body">

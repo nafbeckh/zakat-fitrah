@@ -13,7 +13,7 @@ include "delete.php";
 <div class="content">
   <div class="content-header">
     <div class="header-item">
-      <h2>Pembayaran</h2>
+      <h2>Pembayaran Zakat</h2>
     </div>
     <div class="header-item">
       <ul class="breadcrumb">
@@ -27,7 +27,7 @@ include "delete.php";
     <div class="card">
       <div class="card-header">
         <div class="header-title">
-          <h4 class="card-title">Data Pembayaran</h4>
+          <h4 class="card-title">Data Pembayaran Zakat</h4>
         </div>
       </div>
       <div class="card-body">
