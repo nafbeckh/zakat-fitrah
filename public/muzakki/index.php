@@ -28,9 +28,6 @@ include "delete.php";
         </div>
       </div>
       <div class="card-body">
-        <div class="button-place">
-          <a href="create" class="btn btn-primary mb-4" title="Tambah">Tambah Muzakki</a>
-        </div>
         <table class="table table-hover">
           <thead>
             <tr>

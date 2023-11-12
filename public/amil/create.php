@@ -45,7 +45,7 @@ if (isset($_POST['create'])) {
               <div class="form-col">
                 <div class="form-group">
                   <label for="no_hp">Nomor HP:</label>
-                  <input class="form-control" type="text" name="no_hp" id="no_hp" placeholder="Nomor HP" required />
+                  <input class="form-control" type="text" name="no_hp" id="no_hp" placeholder="Nomor HP" />
                 </div>
               </div>
               <div class="form-col">
